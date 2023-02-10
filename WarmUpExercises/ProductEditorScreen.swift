@@ -13,6 +13,7 @@ struct ProductEditorScreen: View {
     @State var product: Product?
     @State var name = ""
     @State var cost = ""
+    var viewModel = ProductListViewModel.shared
     
     var body: some View {
         NavigationStack {
@@ -22,7 +23,12 @@ struct ProductEditorScreen: View {
                 TextField("cost", text: $cost)
                     .padding()
                 Button("Save") {
-                    save()
+                    if let product = product {
+                        viewModel.update(product, name, Int(cost) ?? 0)
+                    } else {
+                        viewModel.create(name, Int(cost) ?? 0)
+                    }
+                    dismiss()
                 }
                 .padding()
                 Spacer()
@@ -35,31 +41,6 @@ struct ProductEditorScreen: View {
                 }
             }
         }
-    }
-    
-    private func save() {
-        do {
-            if let product = product {
-                guard let thawedObj = product.thaw() else { return }
-                assert(thawedObj.isFrozen == false)
-                guard let thawedRealm = thawedObj.realm else { return }
-                try thawedRealm.write {
-                    thawedObj.name = name
-                    thawedObj.cost = Int(cost) ?? 0
-                }
-            } else {
-                let product = Product()
-                product.name = name
-                product.cost = Int(cost) ?? 0
-                let realm = try Realm()
-                try realm.write {
-                    realm.add(product)
-                }
-            }
-            dismiss()
-        } catch let error {
-            print(error)
-        } 
     }
 }
 

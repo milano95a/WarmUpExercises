@@ -16,7 +16,21 @@
 		BDEB5C1B29965CB400646252 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB5C1A29965CB400646252 /* Product.swift */; };
 		BDEB5C1D2996610900646252 /* ProductEditorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB5C1C2996610900646252 /* ProductEditorScreen.swift */; };
 		BDEB5C1F2996666E00646252 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDEB5C1E2996666E00646252 /* SourceSansPro-Black.ttf */; };
+		BDEB5C282996695300646252 /* WarmUpExercisesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB5C272996695300646252 /* WarmUpExercisesTests.swift */; };
+		BDEB5C2F299669B500646252 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB5C2E299669B500646252 /* ProductListViewModel.swift */; };
+		BDEB5C3229967BC600646252 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BDEB5C3129967BC600646252 /* RealmSwift */; };
+		BDEB5C3429967BCA00646252 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BDEB5C3329967BCA00646252 /* Realm */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDEB5C292996695300646252 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDEB5BF329964DAE00646252 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDEB5BFA29964DAE00646252;
+			remoteInfo = WarmUpExercises;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BDEB5BFB29964DAE00646252 /* WarmUpExercises.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarmUpExercises.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +42,9 @@
 		BDEB5C1C2996610900646252 /* ProductEditorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEditorScreen.swift; sourceTree = "<group>"; };
 		BDEB5C1E2996666E00646252 /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
 		BDEB5C202996674300646252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BDEB5C252996695200646252 /* WarmUpExercisesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WarmUpExercisesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDEB5C272996695300646252 /* WarmUpExercisesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpExercisesTests.swift; sourceTree = "<group>"; };
+		BDEB5C2E299669B500646252 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +57,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDEB5C222996695200646252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDEB5C3429967BCA00646252 /* Realm in Frameworks */,
+				BDEB5C3229967BC600646252 /* RealmSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -47,7 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				BDEB5BFD29964DAE00646252 /* WarmUpExercises */,
+				BDEB5C262996695300646252 /* WarmUpExercisesTests */,
 				BDEB5BFC29964DAE00646252 /* Products */,
+				BDEB5C3029967BC600646252 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				BDEB5BFB29964DAE00646252 /* WarmUpExercises.app */,
+				BDEB5C252996695200646252 /* WarmUpExercisesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +94,7 @@
 				BDEB5C202996674300646252 /* Info.plist */,
 				BDEB5BFE29964DAE00646252 /* WarmUpExercisesApp.swift */,
 				BDEB5C0029964DAE00646252 /* ProductListScreen.swift */,
+				BDEB5C2E299669B500646252 /* ProductListViewModel.swift */,
 				BDEB5C1C2996610900646252 /* ProductEditorScreen.swift */,
 				BDEB5C1A29965CB400646252 /* Product.swift */,
 				BDEB5C1E2996666E00646252 /* SourceSansPro-Black.ttf */,
@@ -80,6 +110,21 @@
 				BDEB5C0529964DAF00646252 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BDEB5C262996695300646252 /* WarmUpExercisesTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDEB5C272996695300646252 /* WarmUpExercisesTests.swift */,
+			);
+			path = WarmUpExercisesTests;
+			sourceTree = "<group>";
+		};
+		BDEB5C3029967BC600646252 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,6 +151,28 @@
 			productReference = BDEB5BFB29964DAE00646252 /* WarmUpExercises.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BDEB5C242996695200646252 /* WarmUpExercisesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDEB5C2B2996695300646252 /* Build configuration list for PBXNativeTarget "WarmUpExercisesTests" */;
+			buildPhases = (
+				BDEB5C212996695200646252 /* Sources */,
+				BDEB5C222996695200646252 /* Frameworks */,
+				BDEB5C232996695200646252 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDEB5C2A2996695300646252 /* PBXTargetDependency */,
+			);
+			name = WarmUpExercisesTests;
+			packageProductDependencies = (
+				BDEB5C3129967BC600646252 /* RealmSwift */,
+				BDEB5C3329967BCA00646252 /* Realm */,
+			);
+			productName = WarmUpExercisesTests;
+			productReference = BDEB5C252996695200646252 /* WarmUpExercisesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -118,6 +185,10 @@
 				TargetAttributes = {
 					BDEB5BFA29964DAE00646252 = {
 						CreatedOnToolsVersion = 14.0.1;
+					};
+					BDEB5C242996695200646252 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = BDEB5BFA29964DAE00646252;
 					};
 				};
 			};
@@ -138,6 +209,7 @@
 			projectRoot = "";
 			targets = (
 				BDEB5BFA29964DAE00646252 /* WarmUpExercises */,
+				BDEB5C242996695200646252 /* WarmUpExercisesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -153,6 +225,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDEB5C232996695200646252 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -161,13 +240,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDEB5C1D2996610900646252 /* ProductEditorScreen.swift in Sources */,
+				BDEB5C2F299669B500646252 /* ProductListViewModel.swift in Sources */,
 				BDEB5C0129964DAE00646252 /* ProductListScreen.swift in Sources */,
 				BDEB5BFF29964DAE00646252 /* WarmUpExercisesApp.swift in Sources */,
 				BDEB5C1B29965CB400646252 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BDEB5C212996695200646252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDEB5C282996695300646252 /* WarmUpExercisesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDEB5C2A2996695300646252 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDEB5BFA29964DAE00646252 /* WarmUpExercises */;
+			targetProxy = BDEB5C292996695300646252 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BDEB5C0729964DAF00646252 /* Debug */ = {
@@ -344,6 +440,42 @@
 			};
 			name = Release;
 		};
+		BDEB5C2C2996695300646252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VPJ4257952;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aj.WarmUpExercisesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WarmUpExercises.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WarmUpExercises";
+			};
+			name = Debug;
+		};
+		BDEB5C2D2996695300646252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VPJ4257952;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aj.WarmUpExercisesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WarmUpExercises.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WarmUpExercises";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -361,6 +493,15 @@
 			buildConfigurations = (
 				BDEB5C0A29964DAF00646252 /* Debug */,
 				BDEB5C0B29964DAF00646252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDEB5C2B2996695300646252 /* Build configuration list for PBXNativeTarget "WarmUpExercisesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDEB5C2C2996695300646252 /* Debug */,
+				BDEB5C2D2996695300646252 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -388,6 +529,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BDEB5C1529965C8E00646252 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		BDEB5C3129967BC600646252 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDEB5C1529965C8E00646252 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		BDEB5C3329967BCA00646252 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDEB5C1529965C8E00646252 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

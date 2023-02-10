@@ -10,6 +10,7 @@ import RealmSwift
 
 struct ProductListScreen: View {
     @ObservedResults(Product.self) var products
+    var viewModel = ProductListViewModel.shared
     
     var body: some View {
         NavigationStack {
@@ -24,7 +25,7 @@ struct ProductListScreen: View {
                 }
                 .swipeActions(content: {
                     Button("Delete") {
-                        delete(product)
+                        viewModel.delete(product)
                     }.tint(Color.red)
                     NavigationLink(destination: ProductEditorScreen(product: product), label: {
                         Text("Update")
@@ -40,25 +41,21 @@ struct ProductListScreen: View {
                 })
             })
         }
-    }
-    
-    private func delete(_ product: Product) {
-        guard let thawedObj = product.thaw() else { return }
-        assert(thawedObj.isFrozen == false)
-        guard let thawedRealm = thawedObj.realm else { return }
-        do {
-            try thawedRealm.write {
-                thawedRealm.delete(thawedObj)
-            }            
-        } catch let error {
-            print(error)
-        }
-    }
+    }    
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductListScreen()
+    static var previews: some View {        
+        ProductListScreen().onAppear {
+            let product = Product()
+            product.name = "Snickers"
+            product.cost = 7000
+            let realm = try! Realm()
+            try! realm.write {
+                realm.deleteAll()
+                realm.add(product)
+            }
+        }
     }
 }
 
