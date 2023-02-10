@@ -16,8 +16,11 @@ struct ProductListScreen: View {
             List(products, id: \.self) { product in
                 HStack {
                     Text(product.name)
+                        .font(.custom("SourceSansPro-Black", size: 20))
                     Spacer()
                     Text("\(product.cost)")
+                        .foregroundColor(Color.gray)
+                        .font(.custom("SourceSansPro-Black", size: 16))
                 }
                 .swipeActions(content: {
                     Button("Delete") {
@@ -33,6 +36,7 @@ struct ProductListScreen: View {
             .toolbar(content: {
                 NavigationLink(destination: ProductEditorScreen(), label: {
                     Text("add")
+                        .font(.custom("SourceSansPro-Black", size: 20))
                 })
             })
         }
