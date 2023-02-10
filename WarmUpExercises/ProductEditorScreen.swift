@@ -9,6 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct ProductEditorScreen: View {
+    @Environment(\.dismiss) var dismiss
     @State var product: Product?
     @State var name = ""
     @State var cost = ""
@@ -37,23 +38,28 @@ struct ProductEditorScreen: View {
     }
     
     private func save() {
-        if let product = product {
-            guard let thawedObj = product.thaw() else { return }
-            assert(thawedObj.isFrozen == false)
-            guard let thawedRealm = thawedObj.realm else { return }
-            try! thawedRealm.write {
-                thawedObj.name = name
-                thawedObj.cost = Int(cost) ?? 0
+        do {
+            if let product = product {
+                guard let thawedObj = product.thaw() else { return }
+                assert(thawedObj.isFrozen == false)
+                guard let thawedRealm = thawedObj.realm else { return }
+                try thawedRealm.write {
+                    thawedObj.name = name
+                    thawedObj.cost = Int(cost) ?? 0
+                }
+            } else {
+                let product = Product()
+                product.name = name
+                product.cost = Int(cost) ?? 0
+                let realm = try Realm()
+                try realm.write {
+                    realm.add(product)
+                }
             }
-        } else {
-            let product = Product()
-            product.name = name
-            product.cost = Int(cost) ?? 0
-            let realm = try! Realm()
-            try! realm.write {
-                realm.add(product)
-            }
-        }
+            dismiss()
+        } catch let error {
+            print(error)
+        } 
     }
 }
 

@@ -21,12 +21,7 @@ struct ProductListScreen: View {
                 }
                 .swipeActions(content: {
                     Button("Delete") {
-                        guard let thawedObj = product.thaw() else { return }
-                        assert(thawedObj.isFrozen == false)
-                        guard let thawedRealm = thawedObj.realm else { return }
-                        try! thawedRealm.write {
-                            thawedRealm.delete(thawedObj)
-                        }
+                        delete(product)
                     }.tint(Color.red)
                     NavigationLink(destination: ProductEditorScreen(product: product), label: {
                         Text("Update")
@@ -40,6 +35,19 @@ struct ProductListScreen: View {
                     Text("add")
                 })
             })
+        }
+    }
+    
+    private func delete(_ product: Product) {
+        guard let thawedObj = product.thaw() else { return }
+        assert(thawedObj.isFrozen == false)
+        guard let thawedRealm = thawedObj.realm else { return }
+        do {
+            try thawedRealm.write {
+                thawedRealm.delete(thawedObj)
+            }            
+        } catch let error {
+            print(error)
         }
     }
 }
