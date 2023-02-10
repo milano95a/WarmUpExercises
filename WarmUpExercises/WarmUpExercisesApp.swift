@@ -11,7 +11,7 @@ import SwiftUI
 struct WarmUpExercisesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ProductListScreen()
         }
     }
 }

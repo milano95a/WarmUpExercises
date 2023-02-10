@@ -8,18 +8,18 @@
 import SwiftUI
 import RealmSwift
 
-struct ContentView: View {
-//    var products = ["snickers", "orea", "kit-kat"]
+struct ProductListScreen: View {
     @ObservedResults(Product.self) var products
     
     var body: some View {
-        VStack {
+        NavigationStack {
             List(products, id: \.self) { product in
                 HStack {
                     Text(product.name)
                     Spacer()
                     Text("\(product.cost)")
-                }.swipeActions(content: {
+                }
+                .swipeActions(content: {
                     Button("Delete") {
                         guard let thawedObj = product.thaw() else { return }
                         assert(thawedObj.isFrozen == false)
@@ -28,32 +28,25 @@ struct ContentView: View {
                             thawedRealm.delete(thawedObj)
                         }
                     }.tint(Color.red)
-                    Button("Update") {
-                        guard let thawedObj = product.thaw() else { return }
-                        assert(thawedObj.isFrozen == false)
-                        guard let thawedRealm = thawedObj.realm else { return }
-                        try! thawedRealm.write {
-                            thawedObj.name = "\(thawedObj.name) udpated"
-                        }
-                    }.tint(Color.blue)
+                    NavigationLink(destination: ProductEditorScreen(product: product), label: {
+                        Text("Update")
+                    }).tint(Color.blue)
                 })
             }
-            Button("Save") {
-                let product = Product()
-                product.name = "Kit Kat"
-                product.cost = 7_000
-                let realm = try! Realm()
-                try! realm.write {
-                    realm.add(product)
-                }
-            }.modifier(MyButtonStyle())
+            .navigationTitle("Products")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar(content: {
+                NavigationLink(destination: ProductEditorScreen(), label: {
+                    Text("add")
+                })
+            })
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ProductListScreen()
     }
 }
 
